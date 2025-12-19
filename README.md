@@ -22,8 +22,8 @@ A Claude Code Agent Skill for analyzing Federal Election Commission (FEC) campai
 ### Option 1: Clone this repository (Project Skill)
 
 ```bash
-git clone <repo-url> fec-skill
-cd fec-skill
+git clone <repo-url> fec-filing
+cd fec-filing
 ```
 
 The skill is automatically available when using Claude Code in this directory.
@@ -33,8 +33,8 @@ The skill is automatically available when using Claude Code in this directory.
 Copy the skill to your personal skills directory:
 
 ```bash
-git clone <repo-url> /tmp/fec-skill
-cp -r /tmp/fec-skill/.claude/skills/fec-filing ~/.claude/skills/
+git clone <repo-url> /tmp/fec-filing
+cp -r /tmp/fec-filing/.claude/skills/fec-filing ~/.claude/skills/
 ```
 
 The skill is now available globally in all Claude Code sessions.

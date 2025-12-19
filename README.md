@@ -50,12 +50,78 @@ cp -r .claude/skills/fec-filing your-project/.claude/skills/
 
 Once installed, ask Claude Code to analyze FEC filings:
 
-- "Analyze FEC filing 1896830"
-- "Who are the largest contributors in filing 1896830?"
-- "What are the biggest expenditures in this filing?"
-- "Show me contributions from California"
+- "Tell me about the committee for FEC 1896830"
 
-Claude will automatically use the skill to fetch and analyze the filing data.
+```
+⏺ Utah Republican Party
+
+  FEC Filing 1896830 | Form F3XN (Monthly Report)
+
+  Committee Details
+
+  | Field           | Value                          |
+  |-----------------|--------------------------------|
+  | Committee Name  | Utah Republican Party          |
+  | Address         | 420 East South Temple, Ste 390 |
+  | City, State ZIP | Salt Lake City, UT 84111       |
+  | Coverage Period | May 1-31, 2025                 |
+
+  Financial Summary
+
+  | Metric                  |     Amount |
+  |-------------------------|------------|
+  | Total Receipts          | $42,655.80 |
+  | Total Disbursements     | $21,283.49 |
+  | Cash on Hand (Start)    | $45,301.29 |
+  | Cash on Hand (End)      | $66,673.60 |
+  | Debts Owed By Committee |  $7,333.34 |
+
+  Summary
+
+  This is a monthly report (F3XN) for the Utah Republican Party state party committee, covering
+   May 2025. The committee had a net positive month, raising ~$43K and spending ~$21K, ending
+  with about $67K cash on hand. They carry roughly $7,300 in debt.
+```
+
+- "What are the largest expenditures in filing 1896830?"
+
+```
+⏺ FEC Filing 1896830 - Largest Expenditures
+
+  | #   | Recipient                  |    Amount | Date       | Purpose          |
+  |-----|----------------------------|-----------|------------|------------------|
+  | 1   | Trump National Doral Hotel | $1,013.61 | 2025-05-19 | RNC training     |
+  | 2   | Uber.com                   |    $19.77 | 2025-05-06 | Travel - Cabfare |
+  |     | TOTAL (itemized)           | $1,033.38 |            |                  |
+
+  Note
+
+  Only 2 expenditures are itemized on Schedule B. The filing shows $21,283.49 in total
+  disbursements, meaning most spending (~$20,250) was below the $200 itemization threshold and
+  appears only in summary totals.
+
+  The largest single itemized expense was for RNC training at Trump National Doral Hotel in May
+   2025.
+```
+
+- "Show me a table of the contribution counts and totals, by state, in fec filing 1896830"
+
+```
+⏺ FEC Filing 1896830 - Contributions by State
+
+  | State | Count |      Total | % of Total |
+  |-------|-------|------------|------------|
+  | UT    |    32 | $35,042.25 |      87.0% |
+  | VA    |     2 |  $2,400.00 |       6.0% |
+  | GA    |     1 |    $750.00 |       1.9% |
+  | MI    |     1 |    $750.00 |       1.9% |
+  | MD    |     2 |    $750.00 |       1.9% |
+  | FL    |     1 |    $600.00 |       1.5% |
+  | TOTAL |    39 | $40,292.25 |       100% |
+
+  Utah dominates with 87% of the total contributions. The committee received from 6 states
+  total, with only 7 out-of-state contributions.
+```
 
 ## Finding Filing IDs
 
@@ -71,7 +137,7 @@ Claude will automatically use the skill to fetch and analyze the filing data.
 ├── FORMS.md           # Form type reference (F1, F2, F3, F99)
 ├── SCHEDULES.md       # Schedule field mappings (A, B, C, D, E)
 └── scripts/
-    └── fetch_filing.py  # Fetches FEC data (auto-installs dependencies)
+    └── fetch_filing.py  # Fetches FEC data
 ```
 
 ## Manual Script Usage
@@ -87,7 +153,7 @@ Dependencies are automatically installed by uv on first run.
 ## Acknowledgments
 
 - Built on the excellent [fecfile](https://github.com/esonderegger/fecfile) library by Evan Sonderegger
-- Inspired by Derek Willis's [llm-fecfile](https://github.com/dwillis/llm-fecfile) plugin
+- Inspired by Derek Willis's [llm-fecfile](https://github.com/dwillis/llm-fecfile) LLM plugin
 - Uses data from the Federal Election Commission
 
 ## License

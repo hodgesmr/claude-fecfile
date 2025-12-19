@@ -1,5 +1,5 @@
 ---
-name: fec-filing
+name: fecfile
 description: Analyze FEC (Federal Election Commission) campaign finance filings. Use when working with FEC filing IDs, campaign finance data, contributions, disbursements, or political committee financial reports.
 ---
 
@@ -19,12 +19,12 @@ Dependencies are automatically installed when running the script with `uv run`.
 To analyze an FEC filing, use the helper script:
 
 ```bash
-uv run .claude/skills/fec-filing/scripts/fetch_filing.py <FILING_ID>
+uv run .claude/skills/fecfile/scripts/fetch_filing.py <FILING_ID>
 ```
 
 Example:
 ```bash
-uv run .claude/skills/fec-filing/scripts/fetch_filing.py 1896830
+uv run .claude/skills/fecfile/scripts/fetch_filing.py 1896830
 ```
 
 The `fecfile` library and other dependencies are installed automatically by uv.

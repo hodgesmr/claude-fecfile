@@ -25,8 +25,8 @@ This skill is ported from Derek Willis's [llm-fecfile](https://github.com/dwilli
 ### Option 1: Clone this repository (Project Skill)
 
 ```bash
-git clone <repo-url> fec-filing
-cd fec-filing
+git clone <repo-url> claude-fecfile
+cd claude-fecfile
 ```
 
 The skill is automatically available when using Claude Code in this directory.
@@ -36,8 +36,8 @@ The skill is automatically available when using Claude Code in this directory.
 Copy the skill to your personal skills directory:
 
 ```bash
-git clone <repo-url> /tmp/fec-filing
-cp -r /tmp/fec-filing/.claude/skills/fec-filing ~/.claude/skills/
+git clone <repo-url> /tmp/claude-fecfile
+cp -r /tmp/claude-fecfile/.claude/skills/fecfile ~/.claude/skills/
 ```
 
 The skill is now available globally in all Claude Code sessions.
@@ -46,7 +46,7 @@ The skill is now available globally in all Claude Code sessions.
 
 ```bash
 mkdir -p your-project/.claude/skills
-cp -r .claude/skills/fec-filing your-project/.claude/skills/
+cp -r .claude/skills/fecfile your-project/.claude/skills/
 ```
 
 ## Usage
@@ -135,7 +135,7 @@ Once installed, ask Claude Code to analyze FEC filings:
 ## Skill Structure
 
 ```
-.claude/skills/fec-filing/
+.claude/skills/fecfile/
 ├── SKILL.md           # Main skill instructions
 ├── FORMS.md           # Form type reference (F1, F2, F3, F99)
 ├── SCHEDULES.md       # Schedule field mappings (A, B, C, D, E)
@@ -148,7 +148,7 @@ Once installed, ask Claude Code to analyze FEC filings:
 You can also run the fetch script directly:
 
 ```bash
-uv run .claude/skills/fec-filing/scripts/fetch_filing.py 1896830
+uv run .claude/skills/fecfile/scripts/fetch_filing.py 1896830
 ```
 
 Dependencies are automatically installed by uv on first run.

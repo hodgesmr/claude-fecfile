@@ -37,7 +37,7 @@ Copy the skill to your personal skills directory:
 
 ```bash
 git clone git@github.com:hodgesmr/claude-fecfile.git /tmp/claude-fecfile
-cp -r /tmp/claude-fecfile/.claude/skills/fecfile ~/.claude/skills/
+cp -R /tmp/claude-fecfile/.claude/skills/fecfile ~/.claude/skills/
 ```
 
 The skill is now available globally in all Claude Code sessions.
@@ -45,8 +45,8 @@ The skill is now available globally in all Claude Code sessions.
 ### Option 3: Add to an Existing Project
 
 ```bash
-mkdir -p your-project/.claude/skills
-cp -r .claude/skills/fecfile your-project/.claude/skills/
+git clone git@github.com:hodgesmr/claude-fecfile.git /tmp/claude-fecfile
+cp -R /tmp/claude-fecfile/.claude/skills/fecfile your-project/.claude/skills/
 ```
 
 ## Usage

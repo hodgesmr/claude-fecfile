@@ -4,7 +4,8 @@ A Claude Code Agent Skill for analyzing Federal Election Commission (FEC) campai
 
 This skill is ported from Derek Willis's [llm-fecfile](https://github.com/dwillis/llm-fecfile), an LLM plugin that provides FEC filing analysis as fragments for Simon Willison's [LLM](https://llm.datasette.io/) CLI tool. The core functionality and field mapping guidance have been adapted into the Claude Code Agent Skill format, making FEC data analysis available directly within Claude Code sessions.
 
-> **Note:** This skill requires local network access to fetch data from the FEC API (`docquery.fec.gov`). It works with [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) running locally, but not in Claude's web environment where external API access is restricted.
+> [!NOTE]
+> This skill requires local network access to fetch data from the FEC API (`docquery.fec.gov`). It works with [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) running locally, but not in Claude's web environment where external API access is restricted.
 
 ## Features
 

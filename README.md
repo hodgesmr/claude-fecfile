@@ -103,6 +103,12 @@ To create a new release with the ZIP file:
 gh release create v1.0.0 fec-filing-skill.zip --title "v1.0.0" --notes "Initial release"
 ```
 
+## Acknowledgments
+
+- Built on the excellent [fecfile](https://github.com/esonderegger/fecfile) library by Evan Sonderegger
+- Inspired by Derek Willis's [llm-fecfile](https://github.com/dwillis/llm-fecfile) plugin
+- Uses data from the Federal Election Commission
+
 ## License
 
 MIT

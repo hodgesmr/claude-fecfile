@@ -55,18 +55,44 @@ Schedules you don't request are never parsed.
 
 ### Checking Size
 
-Even after pre-filtering, results from large filers may be too big for the context window. Check the size:
+Before pulling full schedules, use `--summary-only` to assess the filing:
 
 ```bash
-uv run skills/fecfile/scripts/fetch_filing.py <ID> --schedule A 2>&1 | python3 -c "
-import json, sys
-data = json.load(sys.stdin)
-for sched, items in data.get('itemizations', {}).items():
-    print(f'{sched}: {len(items)} items')
+uv run skills/fecfile/scripts/fetch_filing.py <ID> --summary-only
+```
+
+The summary includes financial totals that help gauge filing size without parsing itemizations:
+
+| Field | Description |
+|-------|-------------|
+| `col_a_individuals_itemized` | Itemized individual contributions (this period) |
+| `col_a_total_contributions` | Total contributions (this period) |
+| `col_a_total_disbursements` | Total disbursements (this period) |
+| `col_b_individuals_itemized` | Itemized individual contributions (year-to-date) |
+| `col_b_total_contributions` | Total contributions (year-to-date) |
+| `col_b_total_disbursements` | Total disbursements (year-to-date) |
+
+These are dollar totals, not item counts, but combined with the committee name they help you decide:
+- **Small state/local party with modest totals**: Probably safe to pull full schedules
+- **ActBlue, WinRed, or presidential campaign with millions in totals**: Use streaming or post-filter
+
+If you need to verify exact counts before processing, stream with an early cutoff:
+
+```bash
+uv run skills/fecfile/scripts/fetch_filing.py <ID> --stream --schedule A | python3 -c "
+import sys
+count = 0
+limit = 256
+for line in sys.stdin:
+    count += 1
+    if count >= limit:
+        print(f'Schedule A: {limit}+ items (stopped counting)')
+        sys.exit(0)
+print(f'Schedule A: {count} items')
 "
 ```
 
-If itemization counts are in the thousands or more, you must post-filter before presenting results.
+If itemization counts are in the hundreds or more, you must post-filter before presenting results. Even smaller filings may benefit from post-filtering to aggregate or focus the output.
 
 ### Post-Filtering with Pandas
 

@@ -31,7 +31,7 @@ uv run skills/fecfile/scripts/fetch_filing.py 1896830 --schedule B      # Only d
 uv run skills/fecfile/scripts/fetch_filing.py 1896830 --schedules A,B   # Multiple schedules
 ```
 
-The `fecfile` and `pandas` libraries are installed automatically by uv.
+The `fecfile` library is installed automatically by uv.
 
 ## Handling Large Filings
 

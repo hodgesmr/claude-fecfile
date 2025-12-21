@@ -1,6 +1,3 @@
-# Original LLM plugin (not part of the skill)
-llm-fecfile/
-
 # Python
 __pycache__/
 *.py[cod]

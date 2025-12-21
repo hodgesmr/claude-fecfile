@@ -19,16 +19,16 @@ Dependencies are automatically installed when running the script with `uv run`.
 To analyze an FEC filing, use the helper script:
 
 ```bash
-uv run skills/fecfile/scripts/fetch_filing.py <FILING_ID> [options]
+uv run scripts/fetch_filing.py <FILING_ID> [options]
 ```
 
 Examples:
 ```bash
-uv run skills/fecfile/scripts/fetch_filing.py 1896830                   # Full filing
-uv run skills/fecfile/scripts/fetch_filing.py 1896830 --summary-only    # Summary only
-uv run skills/fecfile/scripts/fetch_filing.py 1896830 --schedule A      # Only contributions
-uv run skills/fecfile/scripts/fetch_filing.py 1896830 --schedule B      # Only disbursements
-uv run skills/fecfile/scripts/fetch_filing.py 1896830 --schedules A,B   # Multiple schedules
+uv run scripts/fetch_filing.py 1896830                   # Full filing
+uv run scripts/fetch_filing.py 1896830 --summary-only    # Summary only
+uv run scripts/fetch_filing.py 1896830 --schedule A      # Only contributions
+uv run scripts/fetch_filing.py 1896830 --schedule B      # Only disbursements
+uv run scripts/fetch_filing.py 1896830 --schedules A,B   # Multiple schedules
 ```
 
 The `fecfile` library is installed automatically by uv.
@@ -58,7 +58,7 @@ Schedules you don't request are never parsed.
 Before pulling full schedules, use `--summary-only` to assess the filing:
 
 ```bash
-uv run skills/fecfile/scripts/fetch_filing.py <ID> --summary-only
+uv run scripts/fetch_filing.py <ID> --summary-only
 ```
 
 The summary includes financial totals that help gauge filing size without parsing itemizations:
@@ -79,7 +79,7 @@ These are dollar totals, not item counts, but combined with the committee name t
 If you need to verify exact counts before processing, stream with an early cutoff:
 
 ```bash
-uv run skills/fecfile/scripts/fetch_filing.py <ID> --stream --schedule A | python3 -c "
+uv run scripts/fetch_filing.py <ID> --stream --schedule A | python3 -c "
 import sys
 count = 0
 limit = 256
@@ -113,7 +113,7 @@ df = pd.DataFrame(data.get('itemizations', {}).get('Schedule A', []))
 print(df.groupby('contributor_state')['contribution_amount'].agg(['count', 'sum']).sort_values('sum', ascending=False).to_string())
 EOF
 
-uv run skills/fecfile/scripts/fetch_filing.py <ID> --schedule A 2>&1 | uv run /tmp/analysis.py
+uv run scripts/fetch_filing.py <ID> --schedule A 2>&1 | uv run /tmp/analysis.py
 ```
 
 ### Streaming Mode (Producer/Consumer Model)
@@ -121,7 +121,7 @@ uv run skills/fecfile/scripts/fetch_filing.py <ID> --schedule A 2>&1 | uv run /t
 For truly massive filings where even a single schedule is too large to hold in memory, use `--stream` to output JSONL (one JSON object per line):
 
 ```bash
-uv run skills/fecfile/scripts/fetch_filing.py <ID> --stream --schedule A
+uv run scripts/fetch_filing.py <ID> --stream --schedule A
 ```
 
 Each line has the format: `{"data_type": "...", "data": {...}}`
@@ -133,7 +133,7 @@ The producer (fetch_filing.py) outputs one record at a time without loading the 
 Example streaming aggregation:
 
 ```bash
-uv run skills/fecfile/scripts/fetch_filing.py <ID> --stream --schedule A | python3 -c "
+uv run scripts/fetch_filing.py <ID> --stream --schedule A | python3 -c "
 import json, sys
 from collections import defaultdict
 totals = defaultdict(float)

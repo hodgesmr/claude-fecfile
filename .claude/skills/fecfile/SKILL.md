@@ -151,7 +151,7 @@ When analyzing FEC filings:
 
 ## Form Types
 
-See [FORMS.md](FORMS.md) for detailed guidance on:
+See [FORMS.md](references/FORMS.md) for detailed guidance on:
 - **F1/F1A**: Committee registration/organization
 - **F2/F2A**: Candidate declarations
 - **F3/F3P/F3X**: Financial reports
@@ -159,7 +159,7 @@ See [FORMS.md](FORMS.md) for detailed guidance on:
 
 ## Schedules & Field Mappings
 
-See [SCHEDULES.md](SCHEDULES.md) for detailed field mappings for:
+See [SCHEDULES.md](references/SCHEDULES.md) for detailed field mappings for:
 - **Schedule A**: Individual contributions
 - **Schedule B**: Disbursements/expenditures
 - **Schedule C**: Loans

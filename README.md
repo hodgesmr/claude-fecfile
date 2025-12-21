@@ -140,8 +140,9 @@ Once installed, ask Claude Code to analyze FEC filings:
 ```
 .claude/skills/fecfile/
 ├── SKILL.md           # Main skill instructions
-├── FORMS.md           # Form type reference (F1, F2, F3, F99)
-├── SCHEDULES.md       # Schedule field mappings (A, B, C, D, E)
+├── references/
+│   ├── FORMS.md        # Form type reference (F1, F2, F3, F99)
+│   └── SCHEDULES.md    # Schedule field mappings (A, B, C, D, E)
 └── scripts/
     └── fetch_filing.py  # Fetches FEC data
 ```

@@ -6,8 +6,8 @@ This repo contains a Claude Code Agent Skill for analyzing FEC (Federal Election
 
 - `.claude/skills/fecfile/` - The skill itself
   - `SKILL.md` - Main skill instructions and metadata
-  - `FORMS.md` - Reference for FEC form types (F1, F2, F3, F99)
-  - `SCHEDULES.md` - Field mappings for Schedules A, B, C, D, E
+  - `references/FORMS.md` - Reference for FEC form types (F1, F2, F3, F99)
+  - `references/SCHEDULES.md` - Field mappings for Schedules A, B, C, D, E
   - `scripts/fetch_filing.py` - Fetches FEC filing data via the fecfile library
 
 ## Key Details

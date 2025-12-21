@@ -4,7 +4,7 @@
 
 - `.claude/skills/fecfile/` contains the skill content and scripts.
 - `.claude/skills/fecfile/SKILL.md` is the main skill entrypoint and usage guide.
-- `.claude/skills/fecfile/FORMS.md` and `.claude/skills/fecfile/SCHEDULES.md` document FEC form and schedule mappings.
+- `.claude/skills/fecfile/references/FORMS.md` and `.claude/skills/fecfile/references/SCHEDULES.md` document FEC form and schedule mappings.
 - `.claude/skills/fecfile/scripts/fetch_filing.py` is the only executable code, used to fetch filings.
 - `README.md` and `CLAUDE.md` describe installation, usage, and project context.
 
@@ -35,4 +35,3 @@ Dependencies are managed via inline PEP 723 metadata and installed automatically
 - Commit messages are short, imperative, and sentence-style (e.g., “Add streaming mode”).
 - Keep commits scoped to a single change or feature.
 - PRs should include a concise description, the command(s) used to verify, and sample output when behavior changes.
-

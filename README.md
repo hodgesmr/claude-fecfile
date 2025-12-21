@@ -75,9 +75,10 @@ Once installed, ask your agent to analyze FEC filings:
 
   Summary
 
-  This is a monthly report (F3XN) for the Utah Republican Party state party committee, covering
-   May 2025. The committee had a net positive month, raising ~$43K and spending ~$21K, ending
-  with about $67K cash on hand. They carry roughly $7,300 in debt.
+  This is a monthly report (F3XN) for the Utah Republican Party state party committee,
+  covering May 2025. The committee had a net positive month, raising ~$43K and
+  spending ~$21K, ending with about $67K cash on hand.
+  They carry roughly $7,300 in debt.
 ```
 
 - "What are the largest expenditures in filing 1896830?"
@@ -94,11 +95,11 @@ Once installed, ask your agent to analyze FEC filings:
   Note
 
   Only 2 expenditures are itemized on Schedule B. The filing shows $21,283.49 in total
-  disbursements, meaning most spending (~$20,250) was below the $200 itemization threshold and
-  appears only in summary totals.
+  disbursements, meaning most spending (~$20,250) was below the $200 itemization
+  threshold and appears only in summary totals.
 
-  The largest single itemized expense was for RNC training at Trump National Doral Hotel in May
-   2025.
+  The largest single itemized expense was for RNC training at Trump National Doral Hotel
+  in May 2025.
 ```
 
 - "Show me a table of the contribution counts and totals, by state, in fec filing 1896830"
@@ -116,8 +117,8 @@ Once installed, ask your agent to analyze FEC filings:
   | FL    |     1 |    $600.00 |       1.5% |
   | TOTAL |    39 | $40,292.25 |       100% |
 
-  Utah dominates with 87% of the total contributions. The committee received from 6 states
-  total, with only 7 out-of-state contributions.
+  Utah dominates with 87% of the total contributions. The committee received from
+  6 states total, with only 7 out-of-state contributions.
 ```
 
 ## Finding Filing IDs

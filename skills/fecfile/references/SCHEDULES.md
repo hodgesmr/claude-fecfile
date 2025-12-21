@@ -4,25 +4,54 @@
 
 Itemized contributions received ($200+ threshold for itemization).
 
-### Key Fields
+### Contributor Identity
 
 | Field | Description |
 |-------|-------------|
+| `entity_type` | Entity type: IND (individual), ORG (organization), COM (committee) |
 | `contributor_organization_name` | Organization name (if applicable) |
+| `contributor_prefix` | Name prefix (Mr., Ms., Dr., etc.) |
 | `contributor_last_name` | Individual's last name |
 | `contributor_first_name` | Individual's first name |
 | `contributor_middle_name` | Individual's middle name |
 | `contributor_suffix` | Name suffix (Jr., Sr., etc.) |
+| `contributor_employer` | Employer name |
+| `contributor_occupation` | Occupation |
+
+### Contributor Address
+
+| Field | Description |
+|-------|-------------|
+| `contributor_street_1` | Street address line 1 |
+| `contributor_street_2` | Street address line 2 |
 | `contributor_city` | City |
 | `contributor_state` | Two-letter state code |
 | `contributor_zip_code` | ZIP code |
+
+### Contribution Details
+
+| Field | Description |
+|-------|-------------|
 | `contribution_amount` | Dollar amount of contribution |
 | `contribution_date` | Date of contribution |
 | `contribution_aggregate` | Year-to-date aggregate from this contributor |
-| `contributor_employer` | Employer name |
-| `contributor_occupation` | Occupation |
+| `contribution_purpose_descrip` | Purpose description |
+| `election_code` | Election code |
 | `memo_code` | Memo indicator |
 | `memo_text_description` | Memo text |
+| `transaction_id` | Unique transaction identifier |
+
+### Conduit/Intermediary (Earmarked Contributions)
+
+For contributions passed through intermediaries like ActBlue or WinRed:
+
+| Field | Description |
+|-------|-------------|
+| `conduit_name` | Intermediary organization name |
+| `conduit_street1` | Intermediary street address |
+| `conduit_city` | Intermediary city |
+| `conduit_state` | Intermediary state |
+| `conduit_zip_code` | Intermediary ZIP code |
 
 ### Name Resolution
 
@@ -42,22 +71,55 @@ To get contributor name:
 
 Itemized expenditures made ($200+ threshold for itemization).
 
-### Key Fields
+### Payee Identity
 
 | Field | Description |
 |-------|-------------|
+| `entity_type` | Entity type: IND (individual), ORG (organization), COM (committee) |
 | `payee_organization_name` | Organization/vendor name |
+| `payee_prefix` | Name prefix (Mr., Ms., Dr., etc.) |
 | `payee_last_name` | Individual payee's last name |
 | `payee_first_name` | Individual payee's first name |
+| `payee_middle_name` | Individual payee's middle name |
+| `payee_suffix` | Name suffix (Jr., Sr., etc.) |
+
+### Payee Address
+
+| Field | Description |
+|-------|-------------|
+| `payee_street_1` | Street address line 1 |
+| `payee_street_2` | Street address line 2 |
 | `payee_city` | City |
 | `payee_state` | Two-letter state code |
 | `payee_zip_code` | ZIP code |
+
+### Expenditure Details
+
+| Field | Description |
+|-------|-------------|
 | `expenditure_amount` | Dollar amount spent |
 | `expenditure_date` | Date of expenditure |
 | `expenditure_purpose_descrip` | Purpose/category of spending |
 | `category_code` | FEC category code |
+| `election_code` | Election code |
 | `memo_code` | Memo indicator |
 | `memo_text_description` | Memo text |
+| `transaction_id_number` | Unique transaction identifier |
+
+### Beneficiary (Contributions to Candidates/Committees)
+
+For expenditures that benefit a specific candidate or committee:
+
+| Field | Description |
+|-------|-------------|
+| `beneficiary_committee_fec_id` | Beneficiary committee FEC ID |
+| `beneficiary_committee_name` | Beneficiary committee name |
+| `beneficiary_candidate_fec_id` | Beneficiary candidate FEC ID |
+| `beneficiary_candidate_last_name` | Beneficiary candidate last name |
+| `beneficiary_candidate_first_name` | Beneficiary candidate first name |
+| `beneficiary_candidate_office` | Office sought by candidate |
+| `beneficiary_candidate_state` | Candidate's state |
+| `beneficiary_candidate_district` | Candidate's district |
 
 ### Name Resolution
 

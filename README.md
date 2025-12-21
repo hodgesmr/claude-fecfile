@@ -1,11 +1,11 @@
-# FEC Filing Skill for Claude Code
+# FEC Filing Agent Skill
 
-A Claude Code Agent Skill for analyzing Federal Election Commission (FEC) campaign finance filings.
+An Agent Skill for analyzing Federal Election Commission (FEC) campaign finance filings.
 
-This skill is ported from Derek Willis's [llm-fecfile](https://github.com/dwillis/llm-fecfile), an LLM plugin that provides FEC filing analysis as fragments for Simon Willison's [LLM](https://llm.datasette.io/) CLI tool. The core functionality and field mapping guidance have been adapted into the Claude Code Agent Skill format, making FEC data analysis available directly within Claude Code sessions.
+This skill is ported from Derek Willis's [llm-fecfile](https://github.com/dwillis/llm-fecfile), an LLM plugin that provides FEC filing analysis as fragments for Simon Willison's [LLM](https://llm.datasette.io/) CLI tool. The core functionality and field mapping guidance have been adapted into the Agent Skill format, making FEC data analysis available directly within agent sessions.
 
 > [!NOTE]
-> This Skill requires local network access to fetch data from the FEC (`docquery.fec.gov`). It works with [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) running locally, but not in Claude's web environment where external network access is restricted.
+> This Skill requires local network access to fetch data from the FEC (`docquery.fec.gov`). It will not work in environments where external network access is restricted.
 
 ## Features
 
@@ -16,42 +16,33 @@ This skill is ported from Derek Willis's [llm-fecfile](https://github.com/dwilli
 
 ## Requirements
 
-- [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)
+- An agent runtime that supports Agent Skills (e.g., Claude Code CLI or Codex CLI)
 - [uv](https://docs.astral.sh/uv/) (for running the fetch script)
 - Python 3.9+
 
-## Installation
+## Installation (Global)
 
-### Option 1: Clone this repository (Project Skill)
+Clone the repository once, then copy the skill into your user-level skills directory.
 
 ```bash
-git clone git@github.com:hodgesmr/claude-fecfile.git claude-fecfile
-cd claude-fecfile
+git clone git@github.com:hodgesmr/agent-fecfile.git /tmp/agent-fecfile
 ```
 
-The skill is automatically available when using Claude Code in this directory.
-
-### Option 2: Install as a Personal Skill
-
-Copy the skill to your personal skills directory:
+### Claude Code CLI
 
 ```bash
-git clone git@github.com:hodgesmr/claude-fecfile.git /tmp/claude-fecfile
-cp -R /tmp/claude-fecfile/.claude/skills/fecfile ~/.claude/skills/
+cp -R /tmp/agent-fecfile/skills/fecfile ~/.claude/skills/
 ```
 
-The skill is now available globally in all Claude Code sessions.
-
-### Option 3: Add to an Existing Project
+### Codex CLI
 
 ```bash
-git clone git@github.com:hodgesmr/claude-fecfile.git /tmp/claude-fecfile
-cp -R /tmp/claude-fecfile/.claude/skills/fecfile your-project/.claude/skills/
+cp -R /tmp/agent-fecfile/skills/fecfile ~/.codex/skills/
 ```
 
 ## Usage
 
-Once installed, ask Claude Code to analyze FEC filings:
+Once installed, ask your agent to analyze FEC filings:
 
 > [!WARNING]
 > FEC filings should be considered [untrusted content](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/). A malicious campaign sneaking prompt injections into the memo text field of their F99 is probably unlikely, but not impossible.
@@ -138,7 +129,7 @@ Once installed, ask Claude Code to analyze FEC filings:
 ## Skill Structure
 
 ```
-.claude/skills/fecfile/
+skills/fecfile/
 ├── SKILL.md           # Main skill instructions
 ├── references/
 │   ├── FORMS.md        # Form type reference (F1, F2, F3, F99)
@@ -152,7 +143,7 @@ Once installed, ask Claude Code to analyze FEC filings:
 You can also run the fetch script directly:
 
 ```bash
-uv run .claude/skills/fecfile/scripts/fetch_filing.py 1896830
+uv run skills/fecfile/scripts/fetch_filing.py 1896830
 ```
 
 Dependencies are automatically installed by uv on first run.

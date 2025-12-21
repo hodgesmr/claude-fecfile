@@ -1,10 +1,10 @@
-# Claude Code Skill: fecfile
+# Agent Skill: fecfile
 
-This repo contains a Claude Code Agent Skill for analyzing FEC (Federal Election Commission) campaign finance filings.
+This repo contains an Agent Skill for analyzing FEC (Federal Election Commission) campaign finance filings.
 
 ## Project Structure
 
-- `.claude/skills/fecfile/` - The skill itself
+- `skills/fecfile/` - The skill itself
   - `SKILL.md` - Main skill instructions and metadata
   - `references/FORMS.md` - Reference for FEC form types (F1, F2, F3, F99)
   - `references/SCHEDULES.md` - Field mappings for Schedules A, B, C, D, E
@@ -21,7 +21,7 @@ This repo contains a Claude Code Agent Skill for analyzing FEC (Federal Election
 
 Fetch a filing:
 ```bash
-uv run .claude/skills/fecfile/scripts/fetch_filing.py <FILING_ID> [options]
+uv run skills/fecfile/scripts/fetch_filing.py <FILING_ID> [options]
 ```
 
 Options:

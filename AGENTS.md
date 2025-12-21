@@ -2,18 +2,18 @@
 
 ## Project Structure & Module Organization
 
-- `.claude/skills/fecfile/` contains the skill content and scripts.
-- `.claude/skills/fecfile/SKILL.md` is the main skill entrypoint and usage guide.
-- `.claude/skills/fecfile/references/FORMS.md` and `.claude/skills/fecfile/references/SCHEDULES.md` document FEC form and schedule mappings.
-- `.claude/skills/fecfile/scripts/fetch_filing.py` is the only executable code, used to fetch filings.
+- `skills/fecfile/` contains the skill content and scripts.
+- `skills/fecfile/SKILL.md` is the main skill entrypoint and usage guide.
+- `skills/fecfile/references/FORMS.md` and `skills/fecfile/references/SCHEDULES.md` document FEC form and schedule mappings.
+- `skills/fecfile/scripts/fetch_filing.py` is the only executable code, used to fetch filings.
 - `README.md` and `CLAUDE.md` describe installation, usage, and project context.
 
 ## Build, Test, and Development Commands
 
-- `uv run .claude/skills/fecfile/scripts/fetch_filing.py <FILING_ID>`: Fetch a full filing as JSON.
-- `uv run .claude/skills/fecfile/scripts/fetch_filing.py <FILING_ID> --summary-only`: Summary only, no itemizations.
-- `uv run .claude/skills/fecfile/scripts/fetch_filing.py <FILING_ID> --schedule A`: Limit to a single schedule.
-- `uv run .claude/skills/fecfile/scripts/fetch_filing.py <FILING_ID> --stream`: JSONL streaming for large filings.
+- `uv run skills/fecfile/scripts/fetch_filing.py <FILING_ID>`: Fetch a full filing as JSON.
+- `uv run skills/fecfile/scripts/fetch_filing.py <FILING_ID> --summary-only`: Summary only, no itemizations.
+- `uv run skills/fecfile/scripts/fetch_filing.py <FILING_ID> --schedule A`: Limit to a single schedule.
+- `uv run skills/fecfile/scripts/fetch_filing.py <FILING_ID> --stream`: JSONL streaming for large filings.
 
 Dependencies are managed via inline PEP 723 metadata and installed automatically by `uv run`.
 

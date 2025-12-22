@@ -50,8 +50,13 @@ Releases use semver tags (e.g., `1.0.0`) plus a `latest` tag that always points 
      author: Matt Hodges
      version: "1.1.0"
    ```
-2. Commit the version bump
-3. Run the release script:
+2. Update `CHANGELOG.md`:
+   - Add a new section at the top (below the header) for the new version
+   - Use the format `## [X.Y.Z] - YYYY-MM-DD`
+   - Document changes under `### Added`, `### Changed`, `### Fixed`, or `### Removed` as appropriate
+   - Add a comparison link at the bottom: `[X.Y.Z]: https://github.com/hodgesmr/agent-fecfile/compare/PREV...X.Y.Z`
+3. Commit the version bump and changelog update
+4. Run the release script:
    ```bash
    ./release.sh
    ```

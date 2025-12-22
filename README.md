@@ -22,32 +22,43 @@ This skill was originally ported from Derek Willis's [llm-fecfile](https://githu
 
 ## Installation (Global)
 
-Clone the repository to a permanent location and symlink the skill into your runtime's skills directory.
+Clone the repository and copy the skill into your runtime's skills directory.
 
 ```bash
 git clone --branch latest git@github.com:hodgesmr/agent-fecfile.git ~/agent-fecfile
 ```
 
-**Symlink to your runtime's skills directory:**
+**Copy to your runtime's skills directory:**
 ```bash
 # Claude Code CLI
-ln -s ~/agent-fecfile/skills/fecfile ~/.claude/skills/fecfile
+cp -r ~/agent-fecfile/skills/fecfile ~/.claude/skills/fecfile
 
 # Codex CLI
-ln -s ~/agent-fecfile/skills/fecfile ~/.codex/skills/fecfile
+cp -r ~/agent-fecfile/skills/fecfile ~/.codex/skills/fecfile
 ```
 
 Replace the target path with your runtime's skill directory as needed.
 
 ## Updating
 
+Pull the latest changes and re-copy:
 ```bash
 cd ~/agent-fecfile && git fetch && git checkout latest
 ```
 
-Or pin a specific version:
+Then re-run the copy command for your runtime:
+```bash
+# Claude Code CLI
+rm -rf ~/.claude/skills/fecfile && cp -r ~/agent-fecfile/skills/fecfile ~/.claude/skills/fecfile
+
+# Codex CLI
+rm -rf ~/.codex/skills/fecfile && cp -r ~/agent-fecfile/skills/fecfile ~/.codex/skills/fecfile
+```
+
+To pin a specific version instead:
 ```bash
 cd ~/agent-fecfile && git fetch && git checkout 1.0.0
+# Then re-run the copy command above
 ```
 
 ## Usage

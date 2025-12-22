@@ -48,6 +48,15 @@ uv run scripts/fetch_filing.py <FILING_ID> --schedules A,B   # Multiple schedule
 
 The `fecfile` library is installed automatically by uv.
 
+## Field Name Policy
+
+**IMPORTANT**: Do not guess at field names. Before referencing any field names in responses:
+
+1. For form-level fields (summary data, cash flow, totals): Read `references/FORMS.md`
+2. For itemization fields (contributors, payees, expenditures): Read `references/SCHEDULES.md`
+
+These files contain the authoritative field mappings. If a field name isn't documented there, verify it exists in the actual JSON output before using it.
+
 ## Handling Large Filings
 
 FEC filings vary enormously in size. Small filings (like state party monthly reports) may have only a few dozen itemizations and can be used directly. However, major committees like ActBlue, WinRed, and presidential campaigns can have hundreds of thousands of itemizations in a single filing. **Do not dump large filing data directly into the context window.**
